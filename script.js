@@ -39,10 +39,7 @@ const initialDialogue = [
 
 let ambientHeartsStarted = false;
 let audioStarted = false;
-let youtubeReady = false;
-let youtubePlayerWindow = null;
-const youtubeVideoId = "5CIjoweEm0c";
-const youtubeStartSeconds = 42;
+const backgroundAudio = document.getElementById("backgroundAudio");
 
 function showScreen(screenToShow) {
   Object.values(screens).forEach((screen) => {
@@ -85,39 +82,20 @@ function startAmbientHearts() {
 }
 
 function startMusic() {
-  const iframe = document.getElementById("youtubePlayer");
-  if (!iframe) {
+  if (!backgroundAudio) {
     return;
   }
   if (audioStarted) {
-    if (youtubeReady && youtubePlayerWindow) {
-      youtubePlayerWindow.postMessage(
-        JSON.stringify({
-          event: "command",
-          func: "playVideo",
-          args: [],
-        }),
-        "*"
-      );
-    }
+    backgroundAudio.play().catch(() => {});
     return;
   }
 
   audioStarted = true;
-  youtubePlayerWindow = iframe.contentWindow;
-  iframe.src = `https://www.youtube.com/embed/${youtubeVideoId}?start=${youtubeStartSeconds}&enablejsapi=1&autoplay=1&controls=0&loop=1&playlist=${youtubeVideoId}&rel=0`;
-  setTimeout(() => {
-    youtubePlayerWindow = iframe.contentWindow;
-    youtubeReady = true;
-    youtubePlayerWindow?.postMessage(
-      JSON.stringify({
-        event: "command",
-        func: "playVideo",
-        args: [],
-      }),
-      "*"
-    );
-  }, 1200);
+  backgroundAudio.currentTime = 42;
+  backgroundAudio.volume = 0.45;
+  backgroundAudio.play().catch(() => {
+    audioStarted = false;
+  });
 }
 
 function renderHeartMessages() {

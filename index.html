@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sorry Ankit</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Quicksand:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="background-glow glow-one"></div>
+    <div class="background-glow glow-two"></div>
+    <div class="floating-hearts" id="floatingHearts" aria-hidden="true"></div>
+
+    <main class="page-shell">
+      <section class="screen screen-active landing-screen" id="landingScreen">
+        <div class="landing-inner">
+          <div class="teddy-card-button" id="startApology" role="button" tabindex="0" aria-label="Open apology message">
+            <div class="teddy teddy-large">
+              <div class="teddy-ears">
+                <span></span>
+                <span></span>
+              </div>
+              <div class="teddy-face">
+                <span class="eye left"></span>
+                <span class="eye right"></span>
+                <span class="snout"></span>
+              </div>
+              <div class="teddy-body">
+                <div class="card">
+                  <p>I’m really sorry Ankit 💔</p>
+                </div>
+              </div>
+            </div>
+            <button class="primary-link" type="button">Click me</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="screen heart-screen hidden" id="heartScreen">
+        <div class="message-clouds" id="messageClouds"></div>
+
+        <aside class="corner-teddy" id="cornerTeddy">
+          <div class="speech-bubble">Will you forgive me? 🥺</div>
+          <div class="teddy teddy-small">
+            <div class="teddy-ears">
+              <span></span>
+              <span></span>
+            </div>
+            <div class="teddy-face">
+              <span class="eye left"></span>
+              <span class="eye right"></span>
+              <span class="snout"></span>
+            </div>
+          </div>
+          <button class="soft-button" id="makeSmileButton" type="button">
+            Click here to make me smile
+          </button>
+        </aside>
+      </section>
+
+      <section class="screen big-heart-screen hidden" id="bigHeartScreen">
+        <button class="big-heart" id="openDialogue" type="button" aria-label="Open the next message">
+          <span>I miss you Ankit ❤️</span>
+          <small>Click</small>
+        </button>
+      </section>
+
+      <section class="screen dialogue-screen hidden" id="dialogueScreen">
+        <div class="dialogue-layout">
+          <article class="person-card my-card">
+            <div class="photo-frame">
+              <img
+                id="myPhoto"
+                src="./ankit-photo.jpeg"
+                alt="Your photo placeholder"
+              />
+              <div class="photo-label">You</div>
+            </div>
+            <div class="bubble-stack" id="myBubbles"></div>
+          </article>
+
+          <article class="person-card his-card">
+            <div class="photo-frame">
+              <img
+                id="ankitPhoto"
+                src="./my-photo.jpeg"
+                alt="Ankit's photo placeholder"
+              />
+              <div class="photo-label">Ankit</div>
+            </div>
+            <div class="bubble-stack" id="hisBubbles"></div>
+          </article>
+        </div>
+
+        <div class="choice-panel" id="choicePanel">
+          <p class="panel-title" id="choicePrompt">Wait for the little conversation to finish...</p>
+          <div class="choice-buttons" id="choiceButtons"></div>
+        </div>
+      </section>
+
+      <section class="screen final-screen hidden" id="finalScreen">
+        <div class="final-card">
+          <h1>Sorry for everything…</h1>
+          <p>I didn’t have the courage to tell you earlier.</p>
+          <p>Even now, I don’t have the guts to call you…</p>
+          <p>Aur abhi bhi kaafi bura lag raha hai mujhe.</p>
+          <p>But you truly matter to me… and your friendship means a lot.</p>
+          <p>I really miss you…</p>
+        </div>
+      </section>
+    </main>
+
+    <div class="music-note">Tap once if needed to start the background song.</div>
+    <div class="youtube-audio" aria-hidden="true">
+      <iframe
+        id="youtubePlayer"
+        src="https://www.youtube.com/embed/FS93cEWcwQA?enablejsapi=1&autoplay=0&controls=0&loop=1&playlist=FS93cEWcwQA&rel=0"
+        title="Background song"
+        allow="autoplay; encrypted-media"
+        referrerpolicy="strict-origin-when-cross-origin"
+      ></iframe>
+    </div>
+
+    <script src="./script.js"></script>
+  </body>
+</html>

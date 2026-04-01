@@ -41,6 +41,8 @@ let ambientHeartsStarted = false;
 let audioStarted = false;
 let youtubeReady = false;
 let youtubePlayerWindow = null;
+const youtubeVideoId = "5CIjoweEm0c";
+const youtubeStartSeconds = 42;
 
 function showScreen(screenToShow) {
   Object.values(screens).forEach((screen) => {
@@ -103,7 +105,7 @@ function startMusic() {
 
   audioStarted = true;
   youtubePlayerWindow = iframe.contentWindow;
-  iframe.src = "https://www.youtube.com/embed/FS93cEWcwQA?enablejsapi=1&autoplay=1&controls=0&loop=1&playlist=FS93cEWcwQA&rel=0";
+  iframe.src = `https://www.youtube.com/embed/${youtubeVideoId}?start=${youtubeStartSeconds}&enablejsapi=1&autoplay=1&controls=0&loop=1&playlist=${youtubeVideoId}&rel=0`;
   setTimeout(() => {
     youtubePlayerWindow = iframe.contentWindow;
     youtubeReady = true;
